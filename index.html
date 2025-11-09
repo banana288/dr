@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День Рождения - Праздник каждый день</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Общие стили */
+        :root {
+            --primary: #FF6B8B;
+            --secondary: #6A67CE;
+            --accent: #FFD166;
+            --light: #FFF9F0;
+            --dark: #333333;
+            --text: #444444;
+            --white: #FFFFFF;
+            --success: #4CAF50;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Навигация */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo span {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-menu a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .nav-menu a:hover:before {
+            left: 0;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Главная страница */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 107, 139, 0.85), rgba(106, 103, 206, 0.85)), url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #ffc145;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+        }
+        
+        /* Секции */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            font-size: 2.5rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+        
+        /* Карточки */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+        
+        .card:hover:before {
+            transform: scaleX(1);
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 3rem;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        /* Новые элементы */
+        .feature-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 60px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px 20px;
+            margin: 15px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .testimonials {
+            background: linear-gradient(135deg, rgba(255, 107, 139, 0.05), rgba(106, 103, 206, 0.05));
+            padding: 80px 0;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+        
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial .author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .stat {
+            margin: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        .cta-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--white);
+        }
+        
+        /* Подвал */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #222);
+            color: var(--white);
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Страницы */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-radius: 0 0 20px 20px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-container, .stats {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка с навигацией -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo" onclick="showPage('home')"><span>🎂</span> День Рождения</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showPage('home')">Главная</a></li>
+                <li><a href="#" onclick="showPage('ideas')">Идеи</a></li>
+                <li><a href="#" onclick="showPage('recipes')">Рецепты</a></li>
+                <li><a href="#" onclick="showPage('gifts')">Подарки</a></li>
+                <li><a href="#" onclick="showPage('games')">Игры</a></li>
+                <li><a href="#" onclick="showPage('decor')">Декор</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Главная страница -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h1>Сделайте день рождения незабываемым!</h1>
+                <p>Наш сайт поможет вам организовать идеальный праздник с уникальными идеями, рецептами, играми и советами по декору.</p>
+                <a href="#" class="btn" onclick="showPage('ideas')">Начать планирование</a>
+            </div>
+        </div>
+        
+        <div class="container">
+            <!-- Статистика -->
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-text">Лет опыта</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-text">Счастливых именинников</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-text">Тематических идей</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-text">Рецептов тортов</span>
+                </div>
+            </div>
+            
+            <!-- Особенности -->
+            <div class="feature-container">
+                <div class="feature">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Креативные идеи</h3>
+                    <p>Уникальные темы для вечеринок, подходящие для любого возраста и предпочтений.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Вкусные рецепты</h3>
+                    <p>Проверенные рецепты праздничных блюд, которые порадуют ваших гостей.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-gift"></i>
+                    <h3>Идеи подарков</h3>
+                    <p>Подборки подарков для разных возрастов, интересов и бюджетов.</p>
+                </div>
+            </div>
+            
+            <!-- Популярные разделы -->
+            <div class="section">
+                <h2 class="section-title">Популярные разделы</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img">🎉</div>
+                        <div class="card-content">
+                            <h3>Тематические вечеринки</h3>
+                            <p>Откройте для себя уникальные темы для дня рождения, которые понравятся всем гостям. От классических вариантов до современных трендов.</p>
+                            <a href="#" class="btn" onclick="showPage('ideas')" style="margin-top: 15px; padding: 10px 25px;">Узнать больше</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🍰</div>
+                        <div class="card-content">
+                            <h3>Вкусные угощения</h3>
+                            <p>Попробуйте наши лучшие рецепты праздничных тортов и десертов для любого возраста. Пошаговые инструкции с фото.</p>
+                            <a href="#" class="btn" onclick="showPage('recipes')" style="margin-top: 15px; padding: 10px 25px;">Узнать больше</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎁</div>
+                        <div class="card-content">
+                            <h3>Подарки на любой вкус</h3>
+                            <p>Найдите идеальный подарок для именинника любого возраста и интересов. Практичные и креативные идеи.</p>
+                            <a href="#" class="btn" onclick="showPage('gifts')" style="margin-top: 15px; padding: 10px 25px;">Узнать больше</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Отзывы -->
+            <div class="testimonials">
+                <div class="container">
+                    <h2 class="section-title">Отзывы</h2>
+                    <div class="testimonial">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Анна">
+                        <p>"Сайт помог мне организовать незабываемый день рождения для дочери! Идеи были просто потрясающие, а рецепт торта получился идеальным."</p>
+                        <div class="author">Анна, мама 8-летней Софии</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Призыв к действию -->
+            <div class="cta-section">
+                <h2>Готовы создать незабываемый праздник?</h2>
+                <p>Присоединяйтесь к тысячам довольных пользователей, которые уже организовали свои идеальные дни рождения с нашей помощью!</p>
+                <a href="#" class="btn cta-btn" onclick="showPage('ideas')">Начать сейчас</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница с идеями -->
+    <section id="ideas" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Идеи для дня рождения</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Откройте для себя уникальные тематические идеи, которые превратят ваш день рождения в незабываемое событие. Мы собрали лучшие варианты для разных возрастов и предпочтений.</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img">🎭</div>
+                        <div class="card-content">
+                            <h3>Гавайская вечеринка</h3>
+                            <p>Создайте тропическую атмосферу с цветочными гирляндами, коктейлями и гавайской музыкой. Идеально для летнего праздника.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для взрослых</span>
+                                <span style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-left: 5px;">Лето</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎬</div>
+                        <div class="card-content">
+                            <h3>Ночь в Голливуде</h3>
+                            <p>Устройте просмотр любимых фильмов с попкорном и кинопостером с фото именинника. Красная дорожка обязательна!</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для всех возрастов</span>
+                                <span style="background: var(--secondary); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-left: 5px;">Вечеринка</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎪</div>
+                        <div class="card-content">
+                            <h3>Цирк приехал!</h3>
+                            <p>Клоуны, акробаты и веселые конкурсы сделают праздник незабываемым для детей. Идеально для детского дня рождения.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для детей</span>
+                                <span style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-left: 5px;">Активный отдых</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🕵️</div>
+                        <div class="card-content">
+                            <h3>Детективная вечеринка</h3>
+                            <p>Раскройте таинственное преступление вместе с гостями. Загадки, улики и расследование - идеально для любителей головоломок.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для подростков</span>
+                                <span style="background: var(--secondary); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-left: 5px;">Интеллектуальная</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">👑</div>
+                        <div class="card-content">
+                            <h3>Королевский бал</h3>
+                            <p>Превратите свой дом в королевский дворец. Элегантные наряды, бальные танцы и изысканные угощения.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для взрослых</span>
+                                <span style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-left: 5px;">Формальная</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🚀</div>
+                        <div class="card-content">
+                            <h3>Космическое приключение</h3>
+                            <p>Отправьтесь в путешествие по галактике. Космический декор, "инопланетные" угощения и звездные игры.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для детей</span>
+                                <span style="background: var(--secondary); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; margin-left: 5px;">Фантастика</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Остальные страницы остаются без изменений по структуре -->
+    <!-- Страница с рецептами -->
+    <section id="recipes" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Рецепты для праздника</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Вкусные и проверенные рецепты для вашего праздничного стола. От классических тортов до современных десертов - все с пошаговыми инструкциями.</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img">🍫</div>
+                        <div class="card-content">
+                            <h3>Торт "Шоколадная мечта"</h3>
+                            <p>Нежный шоколадный бисквит с кремом из белого шоколада и свежими ягодами. Время приготовления: 2 часа.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Сложность: средняя</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🍓</div>
+                        <div class="card-content">
+                            <h3>Фруктовая пицца</h3>
+                            <p>Сладкая основа, сливочный сыр и разноцветные свежие фрукты - идеальный летний десерт. Время приготовления: 40 минут.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Сложность: легкая</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🧁</div>
+                        <div class="card-content">
+                            <h3>Праздничные капкейки</h3>
+                            <p>Нежные ванильные кексы с разноцветным кремом и праздничным декором. Время приготовления: 1 час.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Сложность: легкая</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🍋</div>
+                        <div class="card-content">
+                            <h3>Лимонный тарт</h3>
+                            <p>Хрустящая основа с нежной лимонной начинкой и безе. Идеальное сочетание кислого и сладкого. Время приготовления: 1.5 часа.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Сложность: средняя</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🍮</div>
+                        <div class="card-content">
+                            <h3>Классический тирамису</h3>
+                            <p>Итальянский десерт с кофейной пропиткой, нежным кремом и какао. Время приготовления: 40 минут + охлаждение.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Сложность: средняя</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🍎</div>
+                        <div class="card-content">
+                            <h3>Яблочный штрудель</h3>
+                            <p>Тонкое тесто с яблочной начинкой, корицей и изюмом. Подается теплым с шариком мороженого. Время приготовления: 1 час.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Сложность: сложная</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница с подарками -->
+    <section id="gifts" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Идеи подарков</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Найдите идеальный подарок для любого именинника. Мы собрали лучшие идеи для разных возрастов, интересов и бюджетов.</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img">📚</div>
+                        <div class="card-content">
+                            <h3>Для книголюбов</h3>
+                            <p>Подарочный сертификат в книжный магазин или коллекционное издание любимого автора. Электронная книга или стильная книжная полка.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Бюджет: любой</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎧</div>
+                        <div class="card-content">
+                            <h3>Для меломанов</h3>
+                            <p>Качественные наушники, подписка на стриминговый сервис или билеты на концерт. Виниловый проигрыватель или коллекционное издание альбома.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Бюджет: средний/высокий</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🧘</div>
+                        <div class="card-content">
+                            <h3>Для любителей отдыха</h3>
+                            <p>Подарочный набор с ароматическими свечами, маслами для ванны и уютным пледом. Сертификат на спа-процедуры или массаж.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Бюджет: любой</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎮</div>
+                        <div class="card-content">
+                            <h3>Для геймеров</h3>
+                            <p>Новая игра для консоли или ПК, игровая мышь или клавиатура, подарочная карта в игровом магазине. Игровое кресло или гарнитура.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Бюджет: средний/высокий</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">✈️</div>
+                        <div class="card-content">
+                            <h3>Для путешественников</h3>
+                            <p>Дорожная сумка, паспортная обложка, power bank. Подарочный сертификат на бронирование жилья или билеты в интересное место.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Бюджет: любой</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🏠</div>
+                        <div class="card-content">
+                            <h3>Для дома</h3>
+                            <p>Умная колонка, набор качественной посуды, комнатное растение в стильном горшке. Электрический гриль или набор для сыроварения.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Бюджет: любой</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница с играми -->
+    <section id="games" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Игры для дня рождения</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Веселые игры и развлечения для гостей любого возраста. От активных конкурсов до интеллектуальных викторин.</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img">🎯</div>
+                        <div class="card-content">
+                            <h3>Поиск сокровищ</h3>
+                            <p>Организуйте квест с загадками и подсказками, ведущими к главному подарку. Подходит для любого возраста.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Активная игра</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎭</div>
+                        <div class="card-content">
+                            <h3>Караоке-баттл</h3>
+                            <p>Устройте караоке-баттл с любимыми песнями и забавными призами для победителей. Отличное развлечение для взрослых.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Музыкальная игра</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎪</div>
+                        <div class="card-content">
+                            <h3>Настольные игры</h3>
+                            <p>Подборка веселых настольных игр для компании любого возраста и размера. От классики до современных хитов.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для компании</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🕵️</div>
+                        <div class="card-content">
+                            <h3>Мафия</h3>
+                            <p>Классическая психологическая игра для компании от 6 человек. Развивает коммуникативные навыки и логическое мышление.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Психологическая игра</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎨</div>
+                        <div class="card-content">
+                            <h3>Крокодил</h3>
+                            <p>Веселая игра, где нужно объяснять слова жестами. Подходит для любой возрастной группы и не требует подготовки.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для всех возрастов</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🏆</div>
+                        <div class="card-content">
+                            <h3>Викторина об имениннике</h3>
+                            <p>Подготовьте вопросы о жизни и предпочтениях виновника торжества. Победитель получает специальный приз.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Интеллектуальная игра</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница с декором -->
+    <section id="decor" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Идеи декора</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Создайте праздничную атмосферу с помощью наших идей декора. От простых решений до сложных тематических оформлений.</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-img">🎈</div>
+                        <div class="card-content">
+                            <h3>Воздушные шары</h3>
+                            <p>Создайте яркие композиции из воздушных шаров разных цветов и размеров. Гирлянды, арки и фигуры из шаров.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Классический декор</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">💡</div>
+                        <div class="card-content">
+                            <h3>Освещение</h3>
+                            <p>Гирлянды, свечи и светильники создадут уютную и праздничную атмосферу. Используйте разноцветные LED-ленты.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Атмосферный декор</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🍽️</div>
+                        <div class="card-content">
+                            <h3>Сервировка стола</h3>
+                            <p>Тематическая посуда, салфетки и украшения для стола в стиле вашей вечеринки. Не забудьте про карточки гостей.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Детали</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">📸</div>
+                        <div class="card-content">
+                            <h3>Фотозона</h3>
+                            <p>Создайте специальную зону для фотографий с тематическим фоном, реквизитом и хорошим освещением.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для воспоминаний</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🎪</div>
+                        <div class="card-content">
+                            <h3>Тематический декор</h3>
+                            <p>Подберите декор в соответствии с выбранной темой вечеринки. От пиратских атрибутов до космических элементов.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Для тематических вечеринок</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">🖼️</div>
+                        <div class="card-content">
+                            <h3>Персонализированный декор</h3>
+                            <p>Используйте фотографии именинника, его имя и возраст в оформлении. Баннеры, постеры и таблички.</p>
+                            <div style="margin-top: 15px;">
+                                <span style="background: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Индивидуальный подход</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О нас</h3>
+                    <p>Мы помогаем организовать незабываемые дни рождения с 2010 года. Наши идеи проверены тысячами счастливых именинников!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" onclick="showPage('home')" style="color: var(--accent); text-decoration: none;">Главная</a></li>
+                        <li><a href="#" onclick="showPage('ideas')" style="color: var(--accent); text-decoration: none;">Идеи</a></li>
+                        <li><a href="#" onclick="showPage('recipes')" style="color: var(--accent); text-decoration: none;">Рецепты</a></li>
+                        <li><a href="#" onclick="showPage('gifts')" style="color: var(--accent); text-decoration: none;">Подарки</a></li>
+                        <li><a href="#" onclick="showPage('games')" style="color: var(--accent); text-decoration: none;">Игры</a></li>
+                        <li><a href="#" onclick="showPage('decor')" style="color: var(--accent); text-decoration: none;">Декор</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-envelope"></i> Email: info@birthday-party.ru</p>
+                    <p><i class="fas fa-phone"></i> Телефон: +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Адрес: Москва, ул. Праздничная, 15</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 День Рождения - Праздник каждый день. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для показа выбранной страницы
+        function showPage(pageId) {
+            // Скрыть все страницы
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Показать выбранную страницу
+            document.getElementById(pageId).classList.add('active');
+            
+            // Закрыть меню на мобильных устройствах
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.remove('active');
+            
+            // Прокрутить наверх
+            window.scrollTo(0, 0);
+        }
+        
+        // Функция для переключения меню на мобильных устройствах
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+        
+        // Закрыть меню при клике на ссылку
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navMenu = document.querySelector('.nav-menu');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
